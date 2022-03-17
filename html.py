@@ -1,4 +1,3 @@
-from asyncio.windows_events import NULL
 from jinja2 import Environment, FileSystemLoader
 import sys
 import json

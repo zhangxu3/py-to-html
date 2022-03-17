@@ -1,19 +1,32 @@
-# 下载
+## 运行脚本
 
-git clone https://github.com/zhangxu3/node-toHTML.git
+### Author: zhangxu3@genomics.cn 🚀
+
+```bash
+# 下载
+git clone https://github.com/zhangxu3/py-to-html.git
 
 # 进入目录
-
-cd node-toHTML
+cd py-to-html
 
 # 安装依赖
+pip install jinja2
 
-npm install
+# 运行，读取的json文件路径（测试用）
+py html.py ./test/test.json
+```
 
-# 运行，\*表示读取的 json 文件路径
-
-npm run html --json=\*
-
-#
-
-pip install Jinjia2
+```bash
+// 👉 json 结构和字段
+{
+  "title": "**", // 报告标题
+  "output":"", // html输出路径
+  "data":[
+    {
+      "path":"", // svg/png路径
+      "description":"" // 图片描述
+    }
+    // ...
+  ]
+}
+```
