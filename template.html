@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>结果报告页</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .title-wrapper {
+            padding: 20px 20px 0 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h3 {
+            padding-left: 20px;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        ul {
+            margin: 0;
+            padding: 20px;
+        }
+
+        .img-wrapper {
+            /* text-align: center; */
+            margin: 0 auto;
+        }
+
+        .img {
+            max-width: 80vw;
+            /* height: 300px; */
+            display: flex;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title-wrapper">
+        <h1>{{json_data.title}}</h1>
+    </div>
+    <ul class="container">
+        {% for item in json_data.data %}
+        <h3>描述：{{item.description}}</h3>
+        <li class="img-wrapper">
+            <img class="img" data-src="{{item.filePath}} " alt="loading" />
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
+<script>
+    const imgs = document.querySelectorAll('img[data-src]')
+    const config = {
+        rootMargin: '0px',
+        threshold: 0
+    }
+    let observer = new IntersectionObserver((entries, self) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                let img = entry.target
+                let src = img.dataset.src
+                if (src) {
+                    img.src = src
+                    img.removeAttribute('data-src')
+                }
+                self.unobserve(entry.target)
+            }
+        })
+    }, config)
+    imgs.forEach((image) => {
+        observer.observe(image)
+    })
+</script>

@@ -1,0 +1,30 @@
+{
+  "title": "相邻切片一致性分析报告",
+  "output": "./",
+  "data": [
+    {
+      "filePath": "./test/图片1.png",
+      "description": "测试图片1"
+    },
+    {
+      "filePath": "./test/图片2.png",
+      "description": "测试图片2"
+    },
+    {
+      "filePath": "./test/图片3.png",
+      "description": "测试图片3"
+    },
+    {
+      "filePath": "./test/图片4.png",
+      "description": "测试图片4"
+    },
+    {
+      "filePath": "./test/图片5.png",
+      "description": "测试图片5"
+    },
+    {
+      "filePath": "./test/图片6.png",
+      "description": "测试图片6"
+    }
+  ]
+}
